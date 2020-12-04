@@ -1,0 +1,7 @@
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\bin\Debug\Carlist with Owners.exe.config
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\bin\Debug\Carlist with Owners.exe
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\bin\Debug\Carlist with Owners.pdb
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\obj\Debug\Carlist with Owners.csprojAssemblyReference.cache
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\obj\Debug\Carlist with Owners.csproj.CoreCompileInputs.cache
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\obj\Debug\Carlist with Owners.exe
+D:\Dokumente\Studium\Intelligente Produktionstechnik\Programmierung\Übungen\Abgaben\Biermann_Philipp_Carlist\Carlist with Owners\Carlist with Owners\obj\Debug\Carlist with Owners.pdb

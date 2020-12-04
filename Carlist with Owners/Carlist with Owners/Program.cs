@@ -10,6 +10,16 @@ namespace Carlist_with_Owners
     {
         static void Main(string[] args)
         {
+
+            Console.ReadLine();
         }
+        static void Output(Personlist[]Personarray)
+        {
+            for (int i = 0; i < Personarray.GetLength(0); i++)
+            {
+                Console.WriteLine(Personarray[i].print());
+            }
+        }
+        
     }
 }
