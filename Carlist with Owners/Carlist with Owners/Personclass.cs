@@ -64,12 +64,10 @@ namespace Carlist_with_Owners
             string Besitzer = Console.ReadLine();
             Auto1[0, 4] = "Besitzer";
             Auto1[1, 4] = Besitzer;
-            
 
-            
+            Console.WriteLine("Fahrzeug1:" + Auto1[1,1]);
 
-
-
+                        
 
 
 
