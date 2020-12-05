@@ -15,7 +15,7 @@ namespace Carlist_with_Owners
 
             do
             {
-                Console.WriteLine("Willkommen zur Autoliste");
+                Console.WriteLine("Willkommen zur Auto-liste");
                 Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
                 Console.WriteLine("h -> Help\ns -> zeigt alle Autos in der Liste\nc -> legt ein neues Auto an\nn -> zeigt den nächsten Service eines Autos\nv -> gibt den Aktuellen Wert eines Autos an");
                 char myfunction= Console.ReadLine()[0];
