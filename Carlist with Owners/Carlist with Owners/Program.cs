@@ -15,9 +15,9 @@ namespace Carlist_with_Owners
 
             do
             {
-                Console.WriteLine("Hallo willkommen zur Autoliste");
+                Console.WriteLine("Willkommen zur Autoliste");
                 Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
-                Console.WriteLine("h -> Help\n s -> zeigt alle Autos in der Liste\n c -> legt ein neues Auto an\n n -> zeigt den nächsten Service eines Autos\n v -> gibt den Aktuellen Wert eines Autos an");
+                Console.WriteLine("h -> Help\ns -> zeigt alle Autos in der Liste\nc -> legt ein neues Auto an\nn -> zeigt den nächsten Service eines Autos\nv -> gibt den Aktuellen Wert eines Autos an");
                 char myfunction= Console.ReadLine()[0];
 
 
@@ -48,10 +48,10 @@ namespace Carlist_with_Owners
                 char stopp = Console.ReadLine()[0];
                 switch (stopp)
                 {
-                    case 'J': inpudend = true;break;
-                    case 'j': inpudend = true;break;
-                    case 'N': inpudend = false;break;
-                    case 'n':inpudend = false;break;
+                    case 'J': inpudend = false;break;
+                    case 'j': inpudend = false;break;
+                    case 'N': inpudend = true;break;
+                    case 'n':inpudend = true;break;
                 }
             }
             while (inpudend);
