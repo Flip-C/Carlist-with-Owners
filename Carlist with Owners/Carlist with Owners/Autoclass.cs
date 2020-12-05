@@ -8,65 +8,59 @@ namespace Carlist_with_Owners
 {
     class Carlist
     {
-        #region members
-        
-        
-
-        public Carlist()
-        {
-        }
-
-
+        #region members        
         #endregion
 
         #region constructor
         public Carlist(string personprename, string personsecname, int anzahlperson)
         {
             
-        }
-        
+        }        
         #endregion
 
-        #region properties
-        
+        #region properties        
         #endregion
 
         #region methods
-        public void CarInput()//wenn Benutzer c drückt
+        public void CarInput()
         {
-            string[,] Auto1 = new string[1, 5];
-                                        
-            Console.WriteLine("Marke eingeben");
-            string Marke = Console.ReadLine();
-            Auto1[0, 0] = "Marke";
-            Auto1[1, 0] = Marke;
+
+            for (int i = 0; i < 10; i++)
+            {
+                string[,] Auto1 = new string[1, 5];
+
+                Console.WriteLine("Marke eingeben");
+                string Marke = Console.ReadLine();
+                Auto1[0, 0] = "Marke";
+                Auto1[1, 0] = Marke;
+
+
+                Console.WriteLine("Baujahr");
+                string Baujahr = Console.ReadLine();
+                Auto1[0, 1] = "Baujahr";
+                Auto1[1, 1] = Baujahr;
+
+
+                Console.WriteLine("Kilometer");
+                string Kilometer = Console.ReadLine();
+                Auto1[0, 2] = "Kilometer";
+                Auto1[1, 2] = Kilometer;
+
+
+                Console.WriteLine("MRSP");
+                string MSRP = Console.ReadLine();
+                Auto1[0, 3] = "MSRP";
+                Auto1[1, 3] = MSRP;
+
+
+                Console.WriteLine("Besitzer");
+                string Besitzer = Console.ReadLine();
+                Auto1[0, 4] = "Besitzer";
+                Auto1[1, 4] = Besitzer;
+
+                Console.WriteLine("Fahrzeug1:" + Auto1[1, 1]);
+            }
             
-
-            Console.WriteLine("Baujahr");
-            string Baujahr = Console.ReadLine();
-            Auto1[0, 1] = "Baujahr";
-            Auto1[1, 1] = Baujahr;
-            
-
-            Console.WriteLine("Kilometer");
-            string Kilometer = Console.ReadLine();
-            Auto1[0, 2] = "Kilometer";
-            Auto1[1, 2] = Kilometer;
-            
-
-            Console.WriteLine("MRSP");
-            string MSRP = Console.ReadLine();
-            Auto1[0, 3] = "MSRP";
-            Auto1[1, 3] = MSRP;
-            
-
-            Console.WriteLine("Besitzer");
-            string Besitzer = Console.ReadLine();
-            Auto1[0, 4] = "Besitzer";
-            Auto1[1, 4] = Besitzer;
-
-            Console.WriteLine("Fahrzeug1:" + Auto1[1,1]);
-
                         
 
 
@@ -82,7 +76,10 @@ namespace Carlist_with_Owners
             double[,] Auto10 = new double[1, 5];
 
             //[Typ,Baujahr,Kilometer,LRSP,Besitzer]                      
-        }        
+        }       
+        
+
+        
         #endregion
 
     }

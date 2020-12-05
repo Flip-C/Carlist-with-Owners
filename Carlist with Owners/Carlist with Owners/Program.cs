@@ -12,6 +12,8 @@ namespace Carlist_with_Owners
         {
 
             bool inputend = true;
+            Auto Audi = new Auto();
+            
 
             do
             {
@@ -27,11 +29,12 @@ namespace Carlist_with_Owners
                 }
                 else if (myfunction=='s')//show all cars
                 {
-
-                }
-                else if (myfunction == 'c')//create new car
-                {
+                    Audi.SchreibeDaten();
                     
+                }
+                else if (myfunction == 'c')//create new Car
+                {
+                    Audi.CreateNewCar();                    
                 }
                 else if (myfunction =='n')//nextservice
                 {
