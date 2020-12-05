@@ -11,7 +11,7 @@ namespace Carlist_with_Owners
         static void Main(string[] args)
         {
 
-            bool inpudend = true;
+            bool inputend = true;
 
             do
             {
@@ -48,13 +48,13 @@ namespace Carlist_with_Owners
                 char stopp = Console.ReadLine()[0];
                 switch (stopp)
                 {
-                    case 'J': inpudend = false;break;
-                    case 'j': inpudend = false;break;
-                    case 'N': inpudend = true;break;
-                    case 'n':inpudend = true;break;
+                    case 'J': inputend = false;break;
+                    case 'j': inputend = false;break;
+                    case 'N': inputend = true;break;
+                    case 'n':inputend = true;break;
                 }
             }
-            while (inpudend);
+            while (inputend);
             Console.ReadLine();
             
         }

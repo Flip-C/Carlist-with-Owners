@@ -15,7 +15,7 @@ namespace Carlist_with_Owners
         double anzahlJahrenK; //Anzahl Jahre nach Kauf
         double baujahr;
         double kilometerstand;
-        double eingegebenerKilometerstand;
+        double kilometerbein;//Kilometer bei der Eingabe
         double servicelimit;
         double servicewarnung;
         #endregion
@@ -66,7 +66,7 @@ namespace Carlist_with_Owners
         {
             //Berechnet den Zeitpunkt bis zum nächsten Service
             //Service alle 10.000km oder alle 2 Jahre
-            servicelimit = eingegebenerKilometerstand + 10000;
+            servicelimit = kilometerbein + 10000;
             servicewarnung = servicelimit - kilometerstand;
             //for jeden Serviceeintrag i + 10000km
             //neues Servicelimit - Kilometeranzahl
