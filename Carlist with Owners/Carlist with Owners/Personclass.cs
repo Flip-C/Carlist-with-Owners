@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carlist_with_Owners
 {
-    class Personlist
+    class Carlist
     {
         #region members
         
@@ -14,7 +14,7 @@ namespace Carlist_with_Owners
         private string _personsecname;
         private int _anzahlperson;
 
-        public Personlist()
+        public Carlist()
         {
         }
 
@@ -22,53 +22,39 @@ namespace Carlist_with_Owners
         #endregion
 
         #region constructor
-        public Personlist(string personprename, string personsecname, int anzahlperson)
+        public Carlist(string personprename, string personsecname, int anzahlperson)
         {
-            Prename = personprename;
-            Secname = personsecname;
-            Anzahlperson = anzahlperson;
+            
         }
         
         #endregion
 
         #region properties
-        public string Prename { get; set; }
-        public string Secname { get; set; }
-        public int Anzahlperson { get; set; }
+        
         #endregion
 
         #region methods
         public void PersonInput()
         {
-            int anzahlperson;
+            
 
-            //Input Number of Cars/Person
-            Personlist Number = new Personlist();
-
-            Console.WriteLine("Geben Sie die Anzahl der zu erstellenden Plätze ein");
-            string anzahlpersonlist = Console.ReadLine();
-            int.TryParse(anzahlpersonlist, out anzahlperson);
-            Personlist[] Personarray = new Personlist[anzahlperson];
+            //Input Number of Cars                 
 
 
 
-            for (int i = 0; i < anzahlperson; i++)
-            {
-                Personarray[i] = new Personlist();
+            double[,] Auto1 = new double[1, 5];
+            double[,] Auto2 = new double[1, 5];
+            double[,] Auto3 = new double[1, 5];
+            double[,] Auto4 = new double[1, 1];
+            double[,] Auto5 = new double[1, 1];
+            double[,] Auto6 = new double[1, 1];
+            double[,] Auto7 = new double[1, 5];
+            double[,] Auto8 = new double[1, 5];
+            double[,] Auto9 = new double[1, 5];
+            double[,] Auto10 = new double[1, 5];
 
-                Console.WriteLine("Geben Sie den Vornamen ein");
-                string personprename = Console.ReadLine();
-
-                Console.WriteLine("Geben Sie den Nachnamen ein");
-                string personsecname = Console.ReadLine();
-            }
-           
-        }
-
-        public string print()
-        {
-            return Prename + Secname;
-        }       
+            //[Typ,Baujahr,Kilometer,LRSP,Besitzer]                      
+        }        
         #endregion
 
     }
