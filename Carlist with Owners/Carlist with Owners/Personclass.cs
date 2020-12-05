@@ -10,9 +10,7 @@ namespace Carlist_with_Owners
     {
         #region members
         
-        private string _personprename;
-        private string _personsecname;
-        private int _anzahlperson;
+        
 
         public Carlist()
         {
@@ -34,15 +32,47 @@ namespace Carlist_with_Owners
         #endregion
 
         #region methods
-        public void PersonInput()
+        public void CarInput()//wenn Benutzer c drückt
         {
+            string[,] Auto1 = new string[1, 5];
+                                        
+            Console.WriteLine("Marke eingeben");
+            string Marke = Console.ReadLine();
+            Auto1[0, 0] = "Marke";
+            Auto1[1, 0] = Marke;
             
 
-            //Input Number of Cars                 
+            Console.WriteLine("Baujahr");
+            string Baujahr = Console.ReadLine();
+            Auto1[0, 1] = "Baujahr";
+            Auto1[1, 1] = Baujahr;
+            
+
+            Console.WriteLine("Kilometer");
+            string Kilometer = Console.ReadLine();
+            Auto1[0, 2] = "Kilometer";
+            Auto1[1, 2] = Kilometer;
+            
+
+            Console.WriteLine("MRSP");
+            string MSRP = Console.ReadLine();
+            Auto1[0, 3] = "MSRP";
+            Auto1[1, 3] = MSRP;
+            
+
+            Console.WriteLine("Besitzer");
+            string Besitzer = Console.ReadLine();
+            Auto1[0, 4] = "Besitzer";
+            Auto1[1, 4] = Besitzer;
+            
+
+            
 
 
 
-            double[,] Auto1 = new double[1, 5];
+
+
+
             double[,] Auto2 = new double[1, 5];
             double[,] Auto3 = new double[1, 5];
             double[,] Auto4 = new double[1, 1];
