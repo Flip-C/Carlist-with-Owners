@@ -14,18 +14,20 @@ namespace Carlist_with_Owners
             bool inputend = true;
             
             
+            
+            
 
             do
             {
                 Console.WriteLine("Willkommen zur Auto-liste");
                 Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
-                Console.WriteLine("h -> help oder c oder n oder v");
+                Console.WriteLine("h -> help oder oder s oder c oder n oder v");
                 char myfunction= Console.ReadLine()[0];
 
 
                 if (myfunction=='h')//Help
                 {
-                    Console.WriteLine("n = zeigt alle Autos in einer Liste");
+                    Console.WriteLine("s = zeigt alle Autos in einer Liste");
                     Console.WriteLine("c = legt ein neues Auto an");
                     Console.WriteLine("n = zeigt den nächsten Service eines Autos an");
                     Console.WriteLine("v = gibt den aktuellen Wert eines Autos an");
@@ -33,25 +35,30 @@ namespace Carlist_with_Owners
                 }
                 else if (myfunction=='s')//show all cars
                 {
+
                     
-                    
+
+                   
                 }
                 else if (myfunction == 'c')//create new Car
                 {
-                              
+                    
+                    Auto.CreateNewCar();               
+                                                     
+                   
                 }
                 else if (myfunction =='n')//nextservice
                 {
                     Console.WriteLine("Welches Auto soll verwendet werden?");
                     char eingabe = Console.ReadLine()[0];
-                    switch()
+                    switch(eingabe)
                     {
                         case '1'://Auto 1 auswählen
                         case '2'://Auto 2 auswählen
                         case '3'://Auto 3 auswählen
                         case '4'://Auto 4 auswählen
                         case '5'://Auto 5 auswählen
-                        
+                            break;
                     }                  
                 }
                 else if (myfunction=='v')//price
@@ -74,7 +81,7 @@ namespace Carlist_with_Owners
             while (inputend);
             Console.ReadLine();
             
-        }
-                
+        }      
+
     }
 }

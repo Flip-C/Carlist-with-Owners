@@ -6,22 +6,25 @@ using System.Threading.Tasks;
 
 namespace Carlist_with_Owners
 {
-    public class Auto
+    class Auto
     {
         #region members             
-        double baujahr;
-        double kilometerstand;
-        double preis;
+        private string _typ;
+        private string _baujahr;
+        private string _kilometerstand;
+        private string _preis;
+        private string _besitzer;
+
         #endregion
 
         #region constructor
         public Auto(string typ, string baujahr, string kilometerstand, string preis, string besitzer)
         {
-            Typ = typ;
-            Baujahr = baujahr;
-            Kilometerstand = kilometerstand;
-            Preis = preis;
-            Besitzer = besitzer;
+            _typ = typ;
+            _baujahr = baujahr;
+            _kilometerstand = kilometerstand;
+            _preis = preis;
+            _besitzer = besitzer;
         }
 
         public Auto()
@@ -32,39 +35,47 @@ namespace Carlist_with_Owners
 
 
         #region methods      
-        public void CreateNewCar()
-        {
-            Auto[] Autoarray = new Auto[1];
-            for (int i = 0; i < 1; i++)
+        public static void CreateNewCar()
+        {            
             {
-                Autoarray[i] = new Auto();
+                Auto[] Autoarray = new Auto[1];
                 
-                Console.WriteLine("Typ Eingeben");
-                string typ = Console.ReadLine();
+                for (int i = 0; i < 1; i ++)
+                {
+                    //Autoarray[i++] = new Auto();
+                    Autoarray[i] = new Auto();
 
-                Console.WriteLine("Baujahr eingeben");
-                string baujahr = Console.ReadLine();
+                    Console.WriteLine("Typ Eingeben");
+                    string typ = Console.ReadLine();
 
-                Console.WriteLine("Kilometerstand eingeben");
-                string kilometerstand = Console.ReadLine();
+                    Console.WriteLine("Baujahr eingeben");
+                    string baujahr = Console.ReadLine();
 
-                Console.WriteLine("Preis eingeben");
-                string preis = Console.ReadLine();
+                    Console.WriteLine("Kilometerstand eingeben");
+                    string kilometerstand = Console.ReadLine();
 
-                Console.WriteLine("Besitzer eingeben");
-                string besitzer = Console.ReadLine();
+                    Console.WriteLine("Preis eingeben");
+                    string preis = Console.ReadLine();
 
-                Autoarray[i] = new Auto(typ, baujahr, kilometerstand, preis, besitzer);
+                    Console.WriteLine("Besitzer eingeben");
+                    string besitzer = Console.ReadLine();
+
+                    Autoarray[i] = new Auto(typ, baujahr, kilometerstand, preis, besitzer);
+                    
+                }
+                Output(Autoarray);
             }
-            Output(Autoarray);
         }
 
-        static void Output(Auto[]Autoarray)
+
+
+        public static void Output(Auto[]Autoarray)
         {
-            for (int i = 0; i < Autoarray.GetLength(0); i++)
+            for (int i = 1; i < Autoarray.GetLength(0); i++)
             {
-                Console.WriteLine(Autoarray[i].SchreibeDaten());
-            }
+               Console.WriteLine( Autoarray[i].SchreibeDaten());
+            }       
+                      
         }
         
 

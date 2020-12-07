@@ -24,15 +24,10 @@ namespace Carlist_with_Owners
 
 
         #region methods     
-        public void Convert()//Wandelt die Zahlendaten in double, um sie in carspecifications zu berechnen 
-        {
-            double dbaujahr = double.Parse(Baujahr);
-            double dkilometer = double.Parse(Kilometerstand);
-            double dpreis = double.Parse(Preis);
-        }
+        
 
 
-        public void CalculatePrice()
+        public double CalculatePrice()
         {
             //Heutiges Jahr festlegen
             DateTime actual = DateTime.Now;
@@ -42,13 +37,13 @@ namespace Carlist_with_Owners
                 //Preis berechnen
                 berechneterPreis = listenpreis - (year - (baujahr * 0.05)) * (kilometerstand * 0.01);
                 AktuellerPreis = berechneterPreis;
-                return;
+                return berechneterPreis;
             }
             while (berechneterPreis > 1000);                      
         }         
 
 
-        public void CalculateService()
+        public double CalculateService()
         {          
             do
             {
@@ -58,6 +53,7 @@ namespace Carlist_with_Owners
                 
                 servicelimit = lastservice + 20000;
                 servicewarnung = servicelimit - kilometerstand;
+                return servicewarnung;
             } while (servicewarnung>lastservice);          
                    
         }
