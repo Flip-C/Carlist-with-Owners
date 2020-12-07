@@ -12,7 +12,7 @@ namespace Carlist_with_Owners
         {
 
             bool inputend = true;
-            Auto Audi = new Auto();
+            
             
 
             do
@@ -25,20 +25,34 @@ namespace Carlist_with_Owners
 
                 if (myfunction=='h')//Help
                 {
-                    
+                    Console.WriteLine("n = zeigt alle Autos in einer Liste");
+                    Console.WriteLine("c = legt ein neues Auto an");
+                    Console.WriteLine("n = zeigt den nächsten Service eines Autos an");
+                    Console.WriteLine("v = gibt den aktuellen Wert eines Autos an");
+                    Console.ReadLine();
                 }
                 else if (myfunction=='s')//show all cars
                 {
-                    Audi.SchreibeDaten();
+                    
                     
                 }
                 else if (myfunction == 'c')//create new Car
                 {
-                    Audi.CreateNewCar();                    
+                              
                 }
                 else if (myfunction =='n')//nextservice
                 {
-
+                    Console.WriteLine("Welches Auto soll verwendet werden?");
+                    char eingabe = Console.ReadLine()[0];
+                    switch()
+                    {
+                        case '1'://Auto 1 auswählen
+                        case '2'://Auto 2 auswählen
+                        case '3'://Auto 3 auswählen
+                        case '4'://Auto 4 auswählen
+                        case '5'://Auto 5 auswählen
+                        
+                    }                  
                 }
                 else if (myfunction=='v')//price
                 {

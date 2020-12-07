@@ -9,89 +9,67 @@ namespace Carlist_with_Owners
     class carspecifications
     {
         #region members
-        double listenpreis;
-        double momentanpreisY;//Years
-        double momentanpreisK;//Kilometer
-        double alterdesAutos; //Anzahl Jahre nach Kauf
-        double baujahr;
-        double kilometerstand;//beim anlegen der Liste
-        double fahrtenbuch;//neue Kilometer
-        double servicelimit;
-        double servicewarnung;
+                
+        private double berechneterPreis;
+        private double servicelimit;
+        private double lastservice;
+        private double servicewarnung;
+        
         #endregion
 
         #region constructor
         #endregion
 
         #region properties
-        public int Listenpreis { get; set; }
-        public int Kaufpreis { get; set; }
-        public int Baujahr { get; set; }
-        public int Kilometerstand { get; set; }
+        public double Service { get; set; }
+        public double AktuellerPreis { get; set; }
+
         #endregion
 
-        #region methods
-        public void PriceCalculatorY()
+        #region methods     
+
+        public void Wandeln()
         {
-            //Berechnet den Preis des Fahrzeugs
-            if (momentanpreisY>2000)
-            {
-                momentanpreisY = listenpreis * alterdesAutos*0.05; //Faktor Wertverlust pro Jahr ca 0.05% + Kilometerlaufleistung 
-
-
-            }
-            else if(momentanpreisY<2000)
-            {
-                Console.WriteLine("Der Wert des Fahrzeugs liegt unter 2000€. Fahren Sie weiter bis der Rost euch scheidet");
-            }
+            listenpreis = (Baujahr);
         }
 
-
-
-        public void PriceCalculatorK()
+        
+        public void CalculatePrice()
         {
-            //Berechnet den Preis des Fahrzeugs anhand der Kilometer
-            if (momentanpreisK > 2000)
+            //Heutiges Jahr festlegen
+            DateTime actual = DateTime.Now;
+            int year = actual.Year;
+            do
             {
-                momentanpreisK = listenpreis * kilometerstand * 0.01;
+                //Preis berechnen
+                berechneterPreis = listenpreis - (year - (Baujahr * 0.05)) * (Kilometerstand * 0.01);
+                AktuellerPreis = berechneterPreis;
+                return;
             }
-            else if (momentanpreisK < 2000)
-            {
-                Console.WriteLine("Der Wert des Fahrzeugs liegt unter 2000€. Fahren Sie weiter bis der Rost euch scheidet");
-            }
-        }
+            while (berechneterPreis > 1000);                      
+        }         
 
 
-        public void ServiceCalculator()
+        public void CalculateService()
         {
-            //Berechnet den Zeitpunkt bis zum nächsten Service
-            //Service alle 20.000km oder alle 2 Jahre
-            servicelimit = //50000;70000;90000;
-            servicewarnung = servicelimit - kilometerstand;
-            
             
 
+            do
+            {
+                //Berechnet den Zeitpunkt bis zum nächsten Service
+                //Service alle 20.000km 
+                lastservice = 0;
+                
+                servicelimit = lastservice + 20000;
+                servicewarnung = servicelimit - Kilometerstand;
+            } while (servicewarnung>lastservice);          
+                   
+        }    
 
-        }
-
-        public void NewCar()
+        public void ArrayDaten()
         {
-            Console.WriteLine("Bitte geben Sie die Fahrzeugdaten ein");
-            Console.WriteLine("Besitzer eingeben");
-            string owner = Console.ReadLine();
-
-            Console.WriteLine("Marke eingeben");
-            string modell = Console.ReadLine();
-
-            Console.WriteLine("Baujahr eingeben");
-            baujahr = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Listenpreis eingeben");
-            listenpreis = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Aktueller Kilometerstand angeben");
-            kilometerstand = double.Parse(Console.ReadLine());
-        }               
+            
+        }
         #endregion
     }
 }
