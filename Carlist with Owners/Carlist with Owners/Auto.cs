@@ -71,14 +71,7 @@ namespace Carlist_with_Owners
         public string SchreibeDaten()
         {
             return Typ + Baujahr + Kilometerstand + Preis + Besitzer;            
-        }    
-
-        public void Convert()//Wandelt die Zahlendaten in double um sie in carspecifications zu berechnen 
-        {
-            double dbaujahr= double.Parse(Baujahr);
-            double dkilometer = double.Parse(Kilometerstand);
-            double dpreis = double.Parse(Preis);           
-        }
+        }            
         #endregion
 
         #region properties
