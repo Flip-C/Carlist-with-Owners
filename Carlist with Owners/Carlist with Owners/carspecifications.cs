@@ -36,26 +36,24 @@ namespace Carlist_with_Owners
             {
                 //Preis berechnen
                 berechneterPreis = listenpreis - (year - (baujahr * 0.05)) * (kilometerstand * 0.01);
-                AktuellerPreis = berechneterPreis;
                 return berechneterPreis;
+                //AktuellerPreis = berechneterPreis;
+
             }
             while (berechneterPreis > 1000);                      
         }         
 
 
         public double CalculateService()
-        {          
-            do
-            {
-                //Berechnet den Zeitpunkt bis zum nächsten Service
-                //Service alle 20.000km 
-                lastservice = 0;
-                
-                servicelimit = lastservice + 20000;
-                servicewarnung = servicelimit - kilometerstand;
-                return servicewarnung;
-            } while (servicewarnung>lastservice);          
-                   
+        {
+            //Berechnet den Zeitpunkt bis zum nächsten Service
+            //Service alle 20.000km 
+            //lastservice = 0;
+            //servicelimit = lastservice + 20000;
+            //servicewarnung = servicelimit - kilometerstand;
+            //return servicewarnung;
+
+            return servicewarnung - kilometerstand % servicelimit;
         }
         #endregion
 
