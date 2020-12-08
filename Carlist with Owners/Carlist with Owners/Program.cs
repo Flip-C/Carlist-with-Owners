@@ -23,11 +23,8 @@ namespace Carlist_with_Owners
                 Console.WriteLine("Willkommen zur Autoliste!");
                 Console.WriteLine("Folgende Möglichkeiten stehen zur Verfügung:");
                 Console.WriteLine("h(elp) s(how) c(reate) n(ext Service) v(alue) d(rive)");
-                Console.WriteLine("e(exit)");                
-                Console.WriteLine();
-                //Console.WriteLine("Willkommen zur Autoliste");
-                //Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
-                //Console.WriteLine("h\n help s oder c oder n oder v oder d");
+                Console.WriteLine("o(wner change) e(xit)");                
+                Console.WriteLine();                
                 char myfunction= Console.ReadLine()[0];
 
 
@@ -43,22 +40,26 @@ namespace Carlist_with_Owners
                 else if (myfunction=='s')//show all cars
                 {
                     PrintCars();
-                    Console.ReadLine();
-
-                   
+                    Console.ReadLine();                   
                 }
                 else if (myfunction == 'c')//create new Car
                 {
                     CreateNewCar();
-
                 }
                 else if (myfunction =='n')//nextservice
                 {
                     Console.WriteLine("Welche AutoID soll verwendet werden?");
                     int.TryParse(Console.ReadLine(), out int auswahl);
-
                     double servicewarnung = autoArray[auswahl].CalculateService();
-                    Console.WriteLine(servicewarnung);
+                    if (servicewarnung<20000)
+                    {                        
+                        Console.WriteLine(servicewarnung);
+                    }                    
+                    else
+                    {
+                        Console.WriteLine("Kein Service nötig");
+                    }
+                    Console.ReadLine();
                 }
                 else if (myfunction=='v')//price
                 {
@@ -73,13 +74,15 @@ namespace Carlist_with_Owners
                     }
                     else
                     {
-                        Console.WriteLine("Auto kaputt");
+                        Console.WriteLine("Auto unter Restwert 2000Euro");
                     }                                        
                 }
                 else if (myfunction=='o')//new owner
                 {
                     Console.WriteLine("\nWelche Auto ID?");
-                    int.TryParse(Console.ReadLine(), out int auswahl);              
+                    int.TryParse(Console.ReadLine(), out int auswahl);
+                    
+
                                                            
                 }
                 else if (myfunction=='d')//kilometerhinzufügen
@@ -101,8 +104,7 @@ namespace Carlist_with_Owners
                         case 'j': inputend = false; break;
                         case 'N': inputend = true; break;
                         case 'n': inputend = true; break;                        
-                    }
-                   
+                    }                   
                 }
                 else
                 {
@@ -141,16 +143,17 @@ namespace Carlist_with_Owners
         public static void CreateNewPerson()
         {
             personArray[0] = new Person("Philipp","Biermann",22,0);
-            personArray[1] = new Person("Lukas", "Meier", 18, 1);
-            personArray[2] = new Person("Philipp", "Biermann", 22, 2);
-            personArray[3] = new Person("Philipp", "Biermann", 22, 3);
-            personArray[4] = new Person("Philipp", "Biermann", 22, 4);
-            personArray[5] = new Person("Philipp", "Biermann", 22, 5);
-            personArray[6] = new Person("Philipp", "Biermann", 22, 6);
-            personArray[7] = new Person("Philipp", "Biermann", 22, 7);
-            personArray[8] = new Person("Philipp", "Biermann", 22, 8);
-            personArray[9] = new Person("Philipp", "Biermann", 22, 9);
-            personArray[10] = new Person("Philipp", "Biermann", 22, 10);            
+            personArray[1] = new Person("Lukas", "Meier", 18,1 );
+            personArray[2] = new Person("Philipp", "Biermann", 22,2);
+            personArray[3] = new Person("Philipp", "Biermann", 22,3);
+            personArray[4] = new Person("Philipp", "Biermann", 22,4);
+            personArray[5] = new Person("Philipp", "Biermann", 22,5);
+            personArray[6] = new Person("Philipp", "Biermann", 22,6);
+            personArray[7] = new Person("Philipp", "Biermann", 22,7);
+            personArray[8] = new Person("Philipp", "Biermann", 22,8);
+            personArray[9] = new Person("Philipp", "Biermann", 22,9);
+            personArray[10] = new Person("Philipp", "Biermann", 22,10);         
+            
         }
 
 
@@ -159,7 +162,7 @@ namespace Carlist_with_Owners
             for (int i = 0; i < index; i++)
             {
                 Console.WriteLine(autoArray[i].Print());
-                //Console.WriteLine(personArray[i].Print());
+                
             }           
         }
 

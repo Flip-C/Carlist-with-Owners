@@ -57,15 +57,10 @@ namespace Carlist_with_Owners
             return _berechneterPreis;          
         }
 
-        public double  CalculateService()
+        public double CalculateService()
         {
-            //Berechnet den Zeitpunkt bis zum nächsten Service
-            //Service alle 20.000km 
-            //lastservice = 0;
-            //servicelimit = lastservice + 20000;
-            //servicewarnung = servicelimit - kilometerstand;
-            //return servicewarnung;
-            _serviceintervall = 20000;
+            //Berechnet den Zeitpunkt bis zum nächsten Service            
+            _serviceintervall = 50000;
             return _servicewarnung = _serviceintervall- _kilometerstand;
         }       
 
