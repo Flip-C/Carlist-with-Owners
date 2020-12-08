@@ -16,7 +16,8 @@ namespace Carlist_with_Owners
         private Person _besitzer;
         private double _berechneterPreis;//aktuell
         private int _servicewarnung;
-       
+        private int intdrive;
+
         private static int _serviceintervall;     
                
         #endregion
@@ -41,7 +42,7 @@ namespace Carlist_with_Owners
         #region methods   
         public string Print()
         {
-            return _typ + _baujahr + _kilometerstand + _besitzer;
+            return _typ +" "+ _baujahr+" "+_kilometerstand+" "+_preis+" "+ _besitzer;
         }
 
 
@@ -50,15 +51,10 @@ namespace Carlist_with_Owners
             //Heutiges Jahr festlegen
             DateTime actual = DateTime.Now;
             int year = actual.Year;
-            do
-            {
-                //Preis berechnen
-                _berechneterPreis = _preis - (year - (_baujahr * 0.05)) * (_kilometerstand * 0.01);
-                return _berechneterPreis;
-                //AktuellerPreis = berechneterPreis;
 
-            }
-            while (_berechneterPreis > 1000);
+            _berechneterPreis = _preis - ((year - _baujahr) * 0.2) * (_kilometerstand * 0.1);
+
+            return _berechneterPreis;          
         }
 
         public double  CalculateService()
@@ -70,13 +66,18 @@ namespace Carlist_with_Owners
             //servicewarnung = servicelimit - kilometerstand;
             //return servicewarnung;
             _serviceintervall = 20000;
-            return _servicewarnung - _kilometerstand % _serviceintervall;//modolo berechnet den restwert
+            return _servicewarnung = _serviceintervall- _kilometerstand;
         }       
 
-        //public string NewOwner(Person _newOwner)
-        //{
-            
-        //}
+        public int Drive()
+        {            
+            Console.WriteLine("Wie viel ist er gefahren?");
+            int.TryParse(Console.ReadLine(), out intdrive);
+
+            _kilometerstand = _kilometerstand + intdrive;
+
+            return _kilometerstand;
+        }
         #endregion
 
         #region properties

@@ -20,7 +20,7 @@ namespace Carlist_with_Owners
             {
                 Console.WriteLine("Willkommen zur Auto-liste");
                 Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
-                Console.WriteLine("h -> help oder oder s oder c oder n oder v");
+                Console.WriteLine("h -> help oder oder s oder c oder n oder v oder d");
                 char myfunction= Console.ReadLine()[0];
 
 
@@ -30,6 +30,7 @@ namespace Carlist_with_Owners
                     Console.WriteLine("c = legt ein neues Auto an");
                     Console.WriteLine("n = zeigt den nächsten Service eines Autos an");
                     Console.WriteLine("v = gibt den aktuellen Wert eines Autos an");
+                    Console.WriteLine("d = ändert den Kilometerstand des Autos");
                     Console.ReadLine();
                 }
                 else if (myfunction=='s')//show all cars
@@ -49,9 +50,8 @@ namespace Carlist_with_Owners
                     Console.WriteLine("Welche AutoID soll verwendet werden?");
                     int.TryParse(Console.ReadLine(), out int auswahl);
 
-                    double nextService = autoArray[auswahl].CalculateService();
-                    Console.WriteLine(nextService);
-
+                    double servicewarnung = autoArray[auswahl].CalculateService();
+                    Console.WriteLine(servicewarnung);
                 }
                 else if (myfunction=='v')//price
                 {
@@ -59,15 +59,20 @@ namespace Carlist_with_Owners
                     int.TryParse(Console.ReadLine(),out int auswahl);
 
                     double berechneterPreis= autoArray[auswahl].CalculatePrice();
-                    Console.WriteLine(berechneterPreis);
-                    
+
+                    if (berechneterPreis >= 0)
+                    {
+                        Console.WriteLine(berechneterPreis);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Auto kaputt");
+                    }                                        
                 }
                 else if (myfunction=='o')//new owner
                 {
                     Console.WriteLine("\nWelche Auto ID?");
-                    int.TryParse(Console.ReadLine(), out int auswahl);
-
-                    
+                    int.TryParse(Console.ReadLine(), out int auswahl);                   
 
                     
                     //Console.WriteLine("Welches Auto? Nummer des Autos angeben")
@@ -75,6 +80,17 @@ namespace Carlist_with_Owners
                    // Console.WriteLine("Name des Besitzers");
                    // string neuerbesitzer = Console.ReadLine();
                    // autoarray[][0, 4] = neuerbesitzer;
+                }
+                else if (myfunction=='d')//kilometerhinzufügen
+                {
+                    Console.WriteLine("\nWelche Auto ID");
+                    int.TryParse(Console.ReadLine(), out int auswahl);
+                    int newkilo = autoArray[auswahl].Drive();
+                    Console.WriteLine(newkilo);
+                }
+                else
+                {
+                    Console.WriteLine("Falsche Eingabe");
                 }
 
 
@@ -127,7 +143,7 @@ namespace Carlist_with_Owners
             personArray[7] = new Person("Philipp", "Biermann", 22, 7);
             personArray[8] = new Person("Philipp", "Biermann", 22, 8);
             personArray[9] = new Person("Philipp", "Biermann", 22, 9);
-            personArray[10] = new Person("Philipp", "Biermann", 22, 10);          
+            personArray[10] = new Person("Philipp", "Biermann", 22, 10);            
         }
 
 
@@ -135,8 +151,8 @@ namespace Carlist_with_Owners
         {
             for (int i = 0; i < index; i++)
             {
-                Console.WriteLine(autoArray[index]);
-                Console.ReadLine();
+                Console.WriteLine(autoArray[i].Print());
+                //Console.WriteLine(personArray[i].Print());
             }           
         }
 
