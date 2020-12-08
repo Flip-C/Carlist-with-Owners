@@ -42,7 +42,7 @@ namespace Carlist_with_Owners
         #region methods   
         public string Print()
         {
-            return _typ +" "+ _baujahr+" "+_kilometerstand+" "+_preis+" "+ _besitzer;
+            return "Modell:"+_typ +" "+"Baujahr:"+ _baujahr+" "+"Kilometerstand:"+_kilometerstand+" "+"Preis:"+_preis+" "+"Besitzer: "+ _besitzer;
         }
 
 

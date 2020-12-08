@@ -18,19 +18,34 @@ namespace Carlist_with_Owners
                                                         
             do
             {
-                Console.WriteLine("Willkommen zur Auto-liste");
-                Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
-                Console.WriteLine("h -> help oder oder s oder c oder n oder v oder d");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║ Programm........: Autoliste                                             ║");
+                Console.WriteLine("║ Autor...........: Philipp Biermann und Tobias Hirsch                    ║");
+                Console.WriteLine("║ ID..............: S2010438061 und 2010438059                            ║");
+                Console.WriteLine("║ Beschreibung....: Willkommen zur Autoliste!                             ║");
+                Console.WriteLine("║                   Folgende Möglichkeiten stehen zur Verfügung:          ║");
+                Console.WriteLine("║                   h(elp) s(how) c(reate) n(ext Service) v(alue) d(rive) ║");
+                Console.WriteLine("║                   e(exit)                                               ║");
+                Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine();
+
+
+                //Console.WriteLine("Willkommen zur Autoliste");
+                //Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
+                //Console.WriteLine("h\n help s oder c oder n oder v oder d");
                 char myfunction= Console.ReadLine()[0];
 
 
                 if (myfunction=='h')//Help
                 {
-                    Console.WriteLine("s = zeigt alle Autos in einer Liste");
-                    Console.WriteLine("c = legt ein neues Auto an");
-                    Console.WriteLine("n = zeigt den nächsten Service eines Autos an");
-                    Console.WriteLine("v = gibt den aktuellen Wert eines Autos an");
-                    Console.WriteLine("d = ändert den Kilometerstand des Autos");
+                    Console.WriteLine("s = Zeigt alle Autos in einer Liste");
+                    Console.WriteLine("c = Legt ein neues Auto an");
+                    Console.WriteLine("n = Zeigt den nächsten Service eines Autos an");
+                    Console.WriteLine("v = Gibt den aktuellen Wert eines Autos an");
+                    Console.WriteLine("d = Ändert den Kilometerstand des Autos");
                     Console.ReadLine();
                 }
                 else if (myfunction=='s')//show all cars
@@ -72,14 +87,8 @@ namespace Carlist_with_Owners
                 else if (myfunction=='o')//new owner
                 {
                     Console.WriteLine("\nWelche Auto ID?");
-                    int.TryParse(Console.ReadLine(), out int auswahl);                   
-
-                    
-                    //Console.WriteLine("Welches Auto? Nummer des Autos angeben")
-                    //auswahl=   Console.ReadLine();
-                   // Console.WriteLine("Name des Besitzers");
-                   // string neuerbesitzer = Console.ReadLine();
-                   // autoarray[][0, 4] = neuerbesitzer;
+                    int.TryParse(Console.ReadLine(), out int auswahl);              
+                                                           
                 }
                 else if (myfunction=='d')//kilometerhinzufügen
                 {
@@ -88,22 +97,24 @@ namespace Carlist_with_Owners
                     int newkilo = autoArray[auswahl].Drive();
                     Console.WriteLine(newkilo);
                 }
+                else if (myfunction=='e')//exit function
+                {
+                    Console.WriteLine("\nAutoliste beenden? J/N");
+                    char stopp = Console.ReadLine()[0];
+                    switch (stopp)
+                    {
+                        case 'J': inputend = false; break;
+                        case 'j': inputend = false; break;
+                        case 'N': inputend = true; break;
+                        case 'n': inputend = true; break;                        
+                    }
+                   
+                }
                 else
                 {
-                    Console.WriteLine("Falsche Eingabe");
-                }
-
-
+                    Console.WriteLine("Falsche Eingabe! Eingabe wiederholen!");
+                }               
                 
-                Console.WriteLine("\nAutoliste beenden? J/N");
-                char stopp = Console.ReadLine()[0];
-                switch (stopp)
-                {
-                    case 'J': inputend = false;break;
-                    case 'j': inputend = false;break;
-                    case 'N': inputend = true;break;
-                    case 'n':inputend = true;break;
-                }
             }
             while (inputend);
             Console.ReadLine();
@@ -128,7 +139,9 @@ namespace Carlist_with_Owners
             Console.WriteLine("Besitzer ID eingeben");
             int.TryParse(Console.ReadLine(), out int intpersonID);
 
-            autoArray[index++] = new Auto(typ, intbaujahr, intkilometer, intpreis, personArray[intpersonID]);             
+            autoArray[index++] = new Auto(typ, intbaujahr, intkilometer, intpreis, personArray[intpersonID]);
+            Console.WriteLine("Neues Auto erstellt!\nWeiter mit Enter");            
+            Console.ReadLine();
         }
 
         public static void CreateNewPerson()
