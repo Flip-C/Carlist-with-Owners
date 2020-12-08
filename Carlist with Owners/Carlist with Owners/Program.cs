@@ -17,25 +17,10 @@ namespace Carlist_with_Owners
             bool inputend = true;          
                                                         
             do
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Clear();
-                Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════╗");
-                Console.WriteLine("║ Programm........: Autoliste                                             ║");
-                Console.WriteLine("║ Autor...........: Philipp Biermann und Tobias Hirsch                    ║");
-                Console.WriteLine("║ ID..............: S2010438061 und 2010438059                            ║");
-                Console.WriteLine("║ Beschreibung....: Willkommen zur Autoliste!                             ║");
-                Console.WriteLine("║                   Folgende Möglichkeiten stehen zur Verfügung:          ║");
-                Console.WriteLine("║                   h(elp) s(how) c(reate) n(ext Service) v(alue) d(rive) ║");
-                Console.WriteLine("║                   e(exit)                                               ║");
-                Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════╝");
-                Console.WriteLine();
-
-
-                //Console.WriteLine("Willkommen zur Autoliste");
-                //Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
-                //Console.WriteLine("h\n help s oder c oder n oder v oder d");
+            {              
+                Console.WriteLine("Willkommen zur Autoliste");
+                Console.WriteLine("Folegnde Möglichkeiten stehen Ihnen zur Verfügung");
+                Console.WriteLine("h\n help s oder c oder n oder v oder d");
                 char myfunction= Console.ReadLine()[0];
 
 
