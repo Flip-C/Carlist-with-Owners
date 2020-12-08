@@ -8,15 +8,14 @@ namespace Carlist_with_Owners
 {
     class Program
     {
+        static Auto[] autoArray = new Auto[11];
+        static int index = 0;
+        static Person[] personArray = new Person[11];
         static void Main(string[] args)
         {
 
-            bool inputend = true;
-            
-            
-            
-            
-
+            bool inputend = true;          
+                                                        
             do
             {
                 Console.WriteLine("Willkommen zur Auto-liste");
@@ -35,40 +34,52 @@ namespace Carlist_with_Owners
                 }
                 else if (myfunction=='s')//show all cars
                 {
-
-                    
+                    PrintCars();
+                    Console.ReadLine();
 
                    
                 }
                 else if (myfunction == 'c')//create new Car
                 {
-                    
-                    Auto.CreateNewCar();               
-                                                     
-                   
+                    CreateNewCar();
+
                 }
                 else if (myfunction =='n')//nextservice
                 {
-                    Console.WriteLine("Welches Auto soll verwendet werden?");
-                    char eingabe = Console.ReadLine()[0];
-                    switch(eingabe)
-                    {
-                        case '1'://Auto 1 auswählen
-                        case '2'://Auto 2 auswählen
-                        case '3'://Auto 3 auswählen
-                        case '4'://Auto 4 auswählen
-                        case '5'://Auto 5 auswählen
-                            break;
-                    }                  
+                    Console.WriteLine("Welche AutoID soll verwendet werden?");
+                    int.TryParse(Console.ReadLine(), out int auswahl);
+
+                    double nextService = autoArray[auswahl].CalculateService();
+                    Console.WriteLine(nextService);
+
                 }
                 else if (myfunction=='v')//price
                 {
+                    Console.WriteLine("Welche Auto ID");
+                    int.TryParse(Console.ReadLine(),out int auswahl);
 
+                    double berechneterPreis= autoArray[auswahl].CalculatePrice();
+                    Console.WriteLine(berechneterPreis);
+                    
+                }
+                else if (myfunction=='o')//new owner
+                {
+                    Console.WriteLine("\nWelche Auto ID?");
+                    int.TryParse(Console.ReadLine(), out int auswahl);
+
+                    
+
+                    
+                    //Console.WriteLine("Welches Auto? Nummer des Autos angeben")
+                    //auswahl=   Console.ReadLine();
+                   // Console.WriteLine("Name des Besitzers");
+                   // string neuerbesitzer = Console.ReadLine();
+                   // autoarray[][0, 4] = neuerbesitzer;
                 }
 
 
-
-                Console.WriteLine("Autoliste beenden? J/N");
+                
+                Console.WriteLine("\nAutoliste beenden? J/N");
                 char stopp = Console.ReadLine()[0];
                 switch (stopp)
                 {
@@ -81,7 +92,53 @@ namespace Carlist_with_Owners
             while (inputend);
             Console.ReadLine();
             
-        }      
+        }
+
+        public static void CreateNewCar()
+        {
+
+            Console.WriteLine("Typ Eingeben");
+            string typ = Console.ReadLine();
+
+            Console.WriteLine("Baujahr eingeben");
+            int.TryParse(Console.ReadLine(), out int intbaujahr);
+
+            Console.WriteLine("Kilometerstand eingeben");
+            int.TryParse(Console.ReadLine(), out int intkilometer);
+
+            Console.WriteLine("Preis eingeben");
+            int.TryParse(Console.ReadLine(), out int intpreis);
+
+            Console.WriteLine("Besitzer ID eingeben");
+            int.TryParse(Console.ReadLine(), out int intpersonID);
+
+            autoArray[index++] = new Auto(typ, intbaujahr, intkilometer, intpreis, personArray[intpersonID]);             
+        }
+
+        public static void CreateNewPerson()
+        {
+            personArray[0] = new Person("Philipp","Biermann",22,0);
+            personArray[1] = new Person("Lukas", "Meier", 18, 1);
+            personArray[2] = new Person("Philipp", "Biermann", 22, 2);
+            personArray[3] = new Person("Philipp", "Biermann", 22, 3);
+            personArray[4] = new Person("Philipp", "Biermann", 22, 4);
+            personArray[5] = new Person("Philipp", "Biermann", 22, 5);
+            personArray[6] = new Person("Philipp", "Biermann", 22, 6);
+            personArray[7] = new Person("Philipp", "Biermann", 22, 7);
+            personArray[8] = new Person("Philipp", "Biermann", 22, 8);
+            personArray[9] = new Person("Philipp", "Biermann", 22, 9);
+            personArray[10] = new Person("Philipp", "Biermann", 22, 10);          
+        }
+
+
+        public static void PrintCars()
+        {
+            for (int i = 0; i < index; i++)
+            {
+                Console.WriteLine(autoArray[index]);
+                Console.ReadLine();
+            }           
+        }
 
     }
 }

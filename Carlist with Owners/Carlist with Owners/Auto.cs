@@ -10,87 +10,81 @@ namespace Carlist_with_Owners
     {
         #region members             
         private string _typ;
-        private string _baujahr;
-        private string _kilometerstand;
-        private string _preis;
-        private string _besitzer;
-
+        private int _baujahr;
+        private int _kilometerstand;
+        private double _preis;//Liste
+        private Person _besitzer;
+        private double _berechneterPreis;//aktuell
+        private int _servicewarnung;
+       
+        private static int _serviceintervall;     
+               
         #endregion
 
         #region constructor
-        public Auto(string typ, string baujahr, string kilometerstand, string preis, string besitzer)
+        public Auto()
+        {
+        }
+
+        public Auto(string typ, int baujahr, int kilometerstand, double preis, Person besitzer)
         {
             _typ = typ;
             _baujahr = baujahr;
             _kilometerstand = kilometerstand;
             _preis = preis;
-            _besitzer = besitzer;
-        }
-
-        public Auto()
-        {
+            _besitzer = besitzer;            
         }
         #endregion
 
 
 
-        #region methods      
-        public static void CreateNewCar()
-        {            
+        #region methods   
+        public string Print()
+        {
+            return _typ + _baujahr + _kilometerstand + _besitzer;
+        }
+
+
+        public double CalculatePrice()
+        {
+            //Heutiges Jahr festlegen
+            DateTime actual = DateTime.Now;
+            int year = actual.Year;
+            do
             {
-                Auto[] Autoarray = new Auto[1];
-                
-                for (int i = 0; i < 1; i ++)
-                {
-                    //Autoarray[i++] = new Auto();
-                    Autoarray[i] = new Auto();
+                //Preis berechnen
+                _berechneterPreis = _preis - (year - (_baujahr * 0.05)) * (_kilometerstand * 0.01);
+                return _berechneterPreis;
+                //AktuellerPreis = berechneterPreis;
 
-                    Console.WriteLine("Typ Eingeben");
-                    string typ = Console.ReadLine();
-
-                    Console.WriteLine("Baujahr eingeben");
-                    string baujahr = Console.ReadLine();
-
-                    Console.WriteLine("Kilometerstand eingeben");
-                    string kilometerstand = Console.ReadLine();
-
-                    Console.WriteLine("Preis eingeben");
-                    string preis = Console.ReadLine();
-
-                    Console.WriteLine("Besitzer eingeben");
-                    string besitzer = Console.ReadLine();
-
-                    Autoarray[i] = new Auto(typ, baujahr, kilometerstand, preis, besitzer);
-                    
-                }
-                Output(Autoarray);
             }
+            while (_berechneterPreis > 1000);
         }
 
-
-
-        public static void Output(Auto[]Autoarray)
+        public double  CalculateService()
         {
-            for (int i = 1; i < Autoarray.GetLength(0); i++)
-            {
-               Console.WriteLine( Autoarray[i].SchreibeDaten());
-            }       
-                      
-        }
-        
+            //Berechnet den Zeitpunkt bis zum nächsten Service
+            //Service alle 20.000km 
+            //lastservice = 0;
+            //servicelimit = lastservice + 20000;
+            //servicewarnung = servicelimit - kilometerstand;
+            //return servicewarnung;
+            _serviceintervall = 20000;
+            return _servicewarnung - _kilometerstand % _serviceintervall;//modolo berechnet den restwert
+        }       
 
-        public string SchreibeDaten()
-        {
-            return Typ + Baujahr + Kilometerstand + Preis + Besitzer;            
-        }            
+        //public string NewOwner(Person _newOwner)
+        //{
+            
+        //}
         #endregion
 
         #region properties
-        public string Typ { get; set; }
-        public string Baujahr { get; set; }
-        public string Kilometerstand { get; set; }
-        public string Preis { get; set; }
-        public string Besitzer { get; set; }
+        public string Typ { get;}
+        public int Baujahr { get;}
+        public int Kilometerstand { get; private set; }
+        public double Preis { get;}
+        public Person Besitzer { get; set;}        
         #endregion 
     }
 }
