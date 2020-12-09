@@ -12,26 +12,26 @@ namespace Carlist_with_Owners
         string _vorname;
         string _nachname;
         int _alter;
-        int _besitzer;
+        int _personID;
         string _newVorname;
         string _newNachname;
         int _newAlter;
         #endregion                   
 
         #region constructor 
-        public Person(string vorname, string nachname, int alter, int besitzer)
+        public Person(string vorname, string nachname, int alter, int personID)
         {
             _vorname = vorname;
             _nachname = nachname;
             _alter = alter;
-            _besitzer = besitzer;
+            _personID = personID;
         }
         #endregion
 
         #region methods
-        public string Print()
-        {
-            return _vorname + _nachname + _alter + _besitzer;
+        private string Print()
+        {            
+            return _vorname+" "+ _nachname+" "+ _personID;
         }
 
         public string ChangeOwner()
@@ -58,6 +58,13 @@ namespace Carlist_with_Owners
         public string Alter { get; set; }
 
         public string Besitzer  { get; set; }
+        #endregion
+
+        #region overload methods
+        public override string ToString()
+        {
+            return Print();
+        }
         #endregion
     }
 }

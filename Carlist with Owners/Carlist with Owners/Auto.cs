@@ -18,7 +18,7 @@ namespace Carlist_with_Owners
         private int _servicewarnung;
         private int intdrive;
 
-        private static int _serviceintervall;     
+        private const int _serviceintervall=50000;     //const können nie von iwas verändert werden!
                
         #endregion
 
@@ -42,15 +42,15 @@ namespace Carlist_with_Owners
         #region methods   
         public string Print()
         {
-            return "Modell:"+_typ +" "+"Baujahr:"+ _baujahr+" "+"Kilometerstand:"+_kilometerstand+" "+"Preis:"+_preis+" "+"Besitzer: "+ _besitzer;
+            return "Modell:"+_typ +" "+"Baujahr:"+ _baujahr+" "+"Kilometerstand:"+_kilometerstand+" "+"Preis:"+_preis+" "+"Besitzer: "+ _besitzer.ToString();
         }
 
 
         public double CalculatePrice()
         {
-            //Heutiges Jahr festlegen
-            DateTime actual = DateTime.Now;
-            int year = actual.Year;
+            //Heutiges Jahr festlegen            
+            int year = DateTime.Now.Year;
+            
 
             _berechneterPreis = _preis - ((year - _baujahr) * 0.2) * (_kilometerstand * 0.1);
 
@@ -59,9 +59,8 @@ namespace Carlist_with_Owners
 
         public double CalculateService()
         {
-            //Berechnet den Zeitpunkt bis zum nächsten Service            
-            _serviceintervall = 50000;
-            return _servicewarnung = _serviceintervall- _kilometerstand;
+            //Berechnet den Zeitpunkt bis zum nächsten Service           
+            return _servicewarnung = _serviceintervall % _kilometerstand;
         }       
 
         public int Drive()
