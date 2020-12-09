@@ -29,8 +29,8 @@ namespace Carlist_with_Owners
 
         public Auto(string typ, int baujahr, int kilometerstand, double preis, Person besitzer)
         {
-            _typ = typ;
-            _baujahr = baujahr;
+            Typ = typ;
+            Baujahr = baujahr;
             _kilometerstand = kilometerstand;
             _preis = preis;
             _besitzer = besitzer;            
@@ -42,7 +42,7 @@ namespace Carlist_with_Owners
         #region methods   
         public string Print()
         {
-            return "Modell:"+_typ +" "+"Baujahr:"+ _baujahr+" "+"Kilometerstand:"+_kilometerstand+" "+"Preis:"+_preis+" "+"Besitzer: "+ _besitzer.ToString();
+            return "Modell:"+Typ +" "+"Baujahr:"+ Baujahr+" "+"Kilometerstand:"+Kilometerstand+" "+"Preis:"+_preis+" "+"Besitzer: "+ _besitzer.ToString();
         }
 
 
@@ -68,9 +68,9 @@ namespace Carlist_with_Owners
             Console.WriteLine("Wie viel ist er gefahren?");
             int.TryParse(Console.ReadLine(), out intdrive);
 
-            _kilometerstand = _kilometerstand + intdrive;
+            Kilometerstand = Kilometerstand + intdrive;
 
-            return _kilometerstand;
+            return Kilometerstand;
         }
         #endregion
 

@@ -36,6 +36,7 @@ namespace Carlist_with_Owners
                     Console.WriteLine("n = Zeigt den nächsten Service eines Autos an");
                     Console.WriteLine("v = Gibt den aktuellen Wert eines Autos an");
                     Console.WriteLine("d = Ändert den Kilometerstand des Autos");
+                    Console.WriteLine("o = Ändert den Besitzer des Autos");
                     Console.ReadLine();
                 }
                 else if (myfunction=='s')//show all cars
@@ -82,8 +83,8 @@ namespace Carlist_with_Owners
                 else if (myfunction=='o')//new owner
                 {
                     Console.WriteLine("\nWelche Auto ID?");
-                    int.TryParse(Console.ReadLine(), out int auswahl);                 
-                                                                               
+                    int.TryParse(Console.ReadLine(), out int auswahl);
+                    personArray[auswahl].ChangeOwner();                                                           
                 }
                 else if (myfunction=='d')//kilometerhinzufügen
                 {

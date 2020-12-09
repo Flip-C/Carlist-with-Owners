@@ -21,31 +21,31 @@ namespace Carlist_with_Owners
         #region constructor 
         public Person(string vorname, string nachname, int alter, int personID)
         {
-            _vorname = vorname;
-            _nachname = nachname;
-            _alter = alter;
-            _personID = personID;
+            Vorname = vorname;
+            Nachname = nachname;
+            Alter = alter;
+            PersonID = personID;
         }
         #endregion
 
         #region methods
         private string Print()
         {            
-            return _vorname+" "+ _nachname+" "+ _personID;
+            return Vorname+" "+ Nachname+" "+ PersonID;
         }
 
         public string ChangeOwner()
         {
             Console.WriteLine("Wie heißt der neue Besitzer mit Vornamen?");
             _newVorname = Console.ReadLine();
-            _vorname = _newVorname;
+            Vorname = _newVorname;
             Console.WriteLine("Wie heißt er mit Nachnamen?");
             _newNachname = Console.ReadLine();
-            _nachname = _newNachname;
+            Nachname = _newNachname;
             Console.WriteLine("Wie alt ist er?");
             int.TryParse(Console.ReadLine(), out _newAlter);
-            _alter = _newAlter;
-            return _vorname+_nachname+_newAlter;        
+            Alter = _newAlter;
+            return Vorname+Nachname+Alter;        
 
         }
         #endregion
@@ -55,9 +55,9 @@ namespace Carlist_with_Owners
 
         public string Nachname { get; set; }
 
-        public string Alter { get; set; }
+        public int Alter { get; set; }
 
-        public string Besitzer  { get; set; }
+        public int PersonID  { get; set; }
         #endregion
 
         #region overload methods
